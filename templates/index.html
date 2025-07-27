@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Ranker</title>
+</head>
+<body>
+    <h1>AI Resume Ranker</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Upload Resumes (PDF):</label><br>
+        <input type="file" name="resumes" multiple required><br><br>
+        <label>Job Description:</label><br>
+        <textarea name="jd" rows="6" cols="60" required></textarea><br><br>
+        <button type="submit">Rank Resumes</button>
+    </form>
+    <hr>
+    {% if results %}
+        <h2>Ranking Results</h2>
+        <ol>
+            {% for name, score in results %}
+                <li><strong>{{ name }}</strong>: {{ score }}%</li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</body>
+</html>
